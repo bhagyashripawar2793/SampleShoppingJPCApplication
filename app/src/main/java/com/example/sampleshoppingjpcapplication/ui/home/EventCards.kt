@@ -44,41 +44,41 @@ fun EventCard(event: Event, modifier: Modifier) {
                     }
 
                 }
-            }
 
-            Row()
-            {
+
+                Row()
+                {
+
+                    Text(
+                        text = event.title,
+                        modifier = Modifier.padding(top = 8.dp).weight(9f),
+                        style = MaterialTheme.typography.body2,
+                        maxLines = 2,
+                        overflow = TextOverflow.Ellipsis
+                    )
+
+                    IconButton(onClick = {
+                        navigateTo(
+                            Screen.Home
+                        )
+                    }, modifier = Modifier.weight(1f).padding(8.dp).size(18.dp)) {
+                    }
+
+                }
 
                 Text(
-                    text = event.title,
-                    modifier = Modifier.padding(top = 8.dp).weight(9f),
-                    style = MaterialTheme.typography.body2,
-                    maxLines = 2,
+                    text = event.place.address,
+                    style = MaterialTheme.typography.caption,
+                    maxLines = 1,
+                    color = Color.Gray,
                     overflow = TextOverflow.Ellipsis
                 )
 
-                IconButton(onClick = {
-                    navigateTo(
-                        Screen.Home
-                    )
-                }, modifier = Modifier.weight(1f).padding(8.dp).size(18.dp)) {
-                }
-
             }
 
-            Text(
-                text = event.place.address,
-                style = MaterialTheme.typography.caption,
-                maxLines = 1,
-                color = Color.Gray,
-                overflow = TextOverflow.Ellipsis
-            )
-
         }
-
     }
 }
-
 @Composable
 fun ImageEvent(event: Event) {
     Image(
