@@ -14,25 +14,23 @@
  * limitations under the License.
  */
 
-package com.example.sampleshoppingjpcapplication.model
+package com.example.sampleshoppingjpcapplication.ui
 
 import androidx.compose.Model
+import com.example.sampleshoppingjpcapplication.model.Event
+import com.example.sampleshoppingjpcapplication.model.Place
 
-
-
-sealed class Screen{
+sealed class Screen {
     object Home : Screen()
     data class Details(val place: Place) : Screen()
-
+    data class DetailsNew(val event: Event) : Screen()
 }
 
 @Model
 object JetExposeStatus {
     var currentScreen: Screen =
         Screen.Home
-
 }
-
 
 fun navigateTo(destination: Screen) {
     JetExposeStatus.currentScreen = destination

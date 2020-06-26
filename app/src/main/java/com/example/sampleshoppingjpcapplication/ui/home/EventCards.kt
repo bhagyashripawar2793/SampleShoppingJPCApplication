@@ -1,7 +1,5 @@
 package com.example.sampleshoppingjpcapplication.ui.home
 
-
-import android.widget.Toast
 import androidx.compose.Composable
 import androidx.ui.core.ContentScale
 import androidx.ui.core.ContextAmbient
@@ -15,26 +13,27 @@ import androidx.ui.layout.RowScope.weight
 import androidx.ui.material.Card
 import androidx.ui.material.IconButton
 import androidx.ui.material.MaterialTheme
-import androidx.ui.material.OutlinedButton
+
 import androidx.ui.res.imageResource
 import androidx.ui.text.style.TextOverflow
 import androidx.ui.unit.dp
 import com.example.sampleshoppingjpcapplication.model.Event
-import com.example.sampleshoppingjpcapplication.model.Screen
-import com.example.sampleshoppingjpcapplication.model.navigateTo
+import com.example.sampleshoppingjpcapplication.ui.Screen
+import com.example.sampleshoppingjpcapplication.ui.navigateTo
 
 
 @Composable
 fun EventCard(event: Event, modifier: Modifier) {
     val context = ContextAmbient.current
     Column(modifier = modifier.preferredWidth(130.dp)) {
-        Clickable(onClick = {
-            Toast.makeText(
-                context,
-                "You Clicked on Hot Deals",
-                Toast.LENGTH_SHORT
-            ).show()
-        }) {
+        Box(Modifier.clickable(onClick = {
+            navigateTo(
+                Screen.DetailsNew(
+                    event
+                )
+            )
+        }), children = {
+
             Column {
                 Card() {
 
@@ -42,9 +41,7 @@ fun EventCard(event: Event, modifier: Modifier) {
                         ImageEvent(event = event)
 
                     }
-
                 }
-
 
                 Row()
                 {
@@ -63,9 +60,7 @@ fun EventCard(event: Event, modifier: Modifier) {
                         )
                     }, modifier = Modifier.weight(1f).padding(8.dp).size(18.dp)) {
                     }
-
                 }
-
                 Text(
                     text = event.place.address,
                     style = MaterialTheme.typography.caption,
@@ -73,12 +68,11 @@ fun EventCard(event: Event, modifier: Modifier) {
                     color = Color.Gray,
                     overflow = TextOverflow.Ellipsis
                 )
-
             }
-
-        }
+        })
     }
 }
+
 @Composable
 fun ImageEvent(event: Event) {
     Image(

@@ -1,5 +1,5 @@
 
-package com.example.sampleshoppingjpcapplication
+package com.example.sampleshoppingjpcapplication.ui
 
 import androidx.compose.Composable
 import androidx.ui.graphics.Color
@@ -11,18 +11,11 @@ import androidx.ui.text.font.FontWeight
 import androidx.ui.text.font.ResourceFont
 import androidx.ui.text.font.fontFamily
 import androidx.ui.unit.sp
-
+import com.example.sampleshoppingjpcapplication.R
 
 
 @Composable
 fun ExploreTheme(content: @Composable() () -> Unit) {
-//    val colors = darkColorPalette(
-//        primary = Color.White,
-//        surface = Color(0xFF26282F),
-//        onSurface = Color.White,
-//        background = Color(0xFF26282F),
-//        onBackground = Color.White
-//    )
 
     val colors = lightColorPalette(
     primary = Color.Black,

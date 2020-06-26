@@ -10,78 +10,53 @@ import androidx.ui.graphics.Color
 import androidx.ui.graphics.ColorFilter
 import androidx.ui.layout.*
 import androidx.ui.material.Card
-import androidx.ui.material.IconButton
 import androidx.ui.material.MaterialTheme
 import androidx.ui.material.ripple.ripple
 import androidx.ui.res.imageResource
 import androidx.ui.res.loadVectorResource
 import androidx.ui.text.TextStyle
-import androidx.ui.text.font.FontFamily
+import androidx.ui.text.font.FontStyle
 import androidx.ui.text.font.FontWeight
+import androidx.ui.text.style.TextAlign
 import androidx.ui.text.style.TextOverflow
-import androidx.ui.unit.TextUnit
 import androidx.ui.unit.dp
+import androidx.ui.unit.sp
 import com.example.sampleshoppingjpcapplication.model.Place
-import com.example.sampleshoppingjpcapplication.model.Screen
-import com.example.sampleshoppingjpcapplication.model.navigateTo
+import com.example.sampleshoppingjpcapplication.ui.Screen
+import com.example.sampleshoppingjpcapplication.ui.navigateTo
 import com.example.sampleshoppingjpcapplication.R
-import com.example.sampleshoppingjpcapplication.model.Type
 
-
-/*
 @Composable
 fun PlaceCardWrapContent(place: Place, modifier: Modifier) {
 
-    Card( modifier. preferredSize(width = 125.dp, height =  120.dp).ripple(),color = Color.Black,shape = CircleShape) {
-       */
-/* Box(Modifier.clickable*//*
-
+    Card(
+        modifier.preferredSize(width = 150.dp, height = 200.dp).ripple(),
+        color = Color.Black,
+        shape = RoundedCornerShape(16.dp)
+    ) {
         Box(Modifier.clickable(onClick = {
             navigateTo(
                 Screen.Details(
                     place
-                ))
-
-        })) {
+                )
+            )
+        }), children = {
             ImagePlaceCardWrapContent(place)
-        }
+        })
     }
 }
 
-*/
 @Composable
-fun PlaceCardWrapContent(place: Place, modifier: Modifier) {
-    val context= ContextAmbient.current
-    Column{
-        Clickable(onClick = {Toast.makeText(context,"Hello card",Toast.LENGTH_SHORT).show() }) {
-
-    Column {
-        navigateTo(
-            Screen.Details(
-                place
+fun PlaceCardFullWidth(place: Place, modifier: Modifier) {
+    Box(modifier.fillMaxWidth().ripple()
+        .clickable(onClick = {
+            navigateTo(
+                Screen.Details(
+                    place
+                )
             )
-        )
-        Card(
-            modifier.preferredSize(width = 125.dp, height = 120.dp).ripple(),
-            color = Color.Black,
-            shape = CircleShape
-        ) { ImagePlaceCardWrapContent(place) }
-    }
-    }}
-}
-
-@Composable
-fun PlaceCardFullWidth(place: Place, modifier: Modifier)
-{
-    Clickable(onClick = {
-        navigateTo(
-            Screen.Details(
-                place
-            )
-        )
-    },  modifier = modifier.fillMaxWidth().ripple()
-    ) {
-        Row()
+        }), children = {
+        Column()
         {
 
             ImagePlaceCardFullWidth(place)
@@ -89,55 +64,39 @@ fun PlaceCardFullWidth(place: Place, modifier: Modifier)
             Column() {
 
                 Text(
-                    modifier = Modifier.padding(start = 16.dp, top = 16.dp, end = 16.dp),
+                    modifier = Modifier.padding(16.dp),
                     text = place.name,
-                    maxLines = 1,
-                    style = MaterialTheme.typography.body1.copy(fontWeight = FontWeight.SemiBold)
-                )
-
-                Text(
-                    modifier = Modifier.padding(start = 16.dp, top = 4.dp, end = 16.dp),
-                    text = place.descriptions,
-                    style = MaterialTheme.typography.subtitle2,
                     maxLines = 3,
-                    color = Color.DarkGray,
-                    overflow = TextOverflow.Ellipsis
+                    textAlign = TextAlign.Center,
+                    style = TextStyle(
+                        fontSize = (25.sp),
+                        fontStyle = FontStyle.Normal,
+                        fontWeight = FontWeight.Bold
+                    )
                 )
-
-                Row(modifier = Modifier.padding(start = 16.dp, top = 16.dp, end = 16.dp))
-                {
-                    val vectorAsset = loadVectorResource(R.drawable.ic_distance)
-                    vectorAsset.resource.resource?.let {
-                        Image(
-                            asset = it,
-                            modifier = Modifier.preferredSize(18.dp, 18.dp),
-                            contentScale = ContentScale.Inside,
-                            colorFilter = ColorFilter.tint(Color.DarkGray)
-                        )
-                    }
-
-                }
             }
 
         }
 
-    }
-}
-
-
-@Composable
-fun ImagePlaceCardWrapContent(place: Place)
-{
-                Image( modifier =  Modifier.preferredSize(24.dp),
-                asset = imageResource(
-                    place.imageResources[0]
-                ),contentScale =  ContentScale.Crop)
-
+    })
 }
 
 @Composable
-fun ImagePlaceCardFullWidth(place: Place)
-{
-    Image(asset = imageResource(id = place.imageResources[0]), contentScale =  ContentScale.Crop
-        , modifier = Modifier.size(120.dp, 140.dp).clip(RoundedCornerShape(8.dp)))
+fun ImagePlaceCardWrapContent(place: Place) {
+    Image(
+        modifier = Modifier.preferredSize(width = 150.dp, height = 200.dp),
+        asset = imageResource(
+            place.imageResources[0]
+        ), contentScale = ContentScale.Crop
+    )
 }
+
+@Composable
+fun ImagePlaceCardFullWidth(place: Place) {
+    Image(
+        asset = imageResource(id = place.imageResources[0]), contentScale = ContentScale.Crop,
+        modifier = Modifier.preferredHeightIn(maxHeight = 180.dp).fillMaxWidth()
+            .clip(RoundedCornerShape(8.dp))
+    )
+}
+
