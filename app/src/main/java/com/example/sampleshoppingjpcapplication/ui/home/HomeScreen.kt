@@ -42,15 +42,18 @@ fun Greeting() {
             Recommended(SampleData().recommended)
             HotDealsEvents(SampleData().upcomingEvents)
             Text(
-                "Horizontal Scrollable Carousel width of the screen",
-                modifier = Modifier.padding(16.dp)
+                "Top Trending Picks",
+                 modifier = Modifier.padding(start = 16.dp, top = 30.dp, end = 16.dp, bottom = 10.dp),
+                fontStyle = FontStyle.Normal,
+                fontSize = (25.sp)
             )
-            //  HorizontalScrollableComponentWithScreenWidth(getPersonList())
             HorizontalScrollableViewPager(types = SampleData().types)
             MostLovedBrands(SampleData().brands)
             Text(
-                "Horizontal Scrollable Carousel width of the screen",
-                modifier = Modifier.padding(16.dp)
+                "Coming Soooon...!",
+                modifier = Modifier.padding(start = 16.dp, top = 30.dp, end = 16.dp, bottom = 10.dp),
+                fontStyle = FontStyle.Normal,
+                fontSize = (25.sp)
             )
             CardCategeriesSingle()
         }
@@ -177,7 +180,7 @@ fun CardCategeriesSingle() {
                 Column {
                     Card(modifier = Modifier.wrapContentWidth().padding(20.dp)) {
                         Column() {
-                            val image = imageResource(id = R.drawable.photoheader)
+                            val image = imageResource(id = R.drawable.shopping_logo)
                             val imageModifier = Modifier
                                 .preferredHeightIn(maxHeight = 180.dp)
                                 .fillMaxWidth()

@@ -102,7 +102,7 @@ fun HorizontalScrollableViewPager(types: List<Type>) {
                                     modifier = Modifier.size(200.dp)
                                         .width(screenWidth.dp - (spacing * 2)),
                                     contentScale = ContentScale.Crop,
-                                    colorFilter = ColorFilter.tint(Color.Black.copy(alpha = 0.5f))
+                                    colorFilter = ColorFilter.tint(Color.Gray.copy(alpha = 0.5f))
                                         .copy(blendMode = BlendMode.darken)
                                 )
                                 // Icon(asset = vectorResource(id = R.drawable.ic_more), tint = Color.Red)

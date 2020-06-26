@@ -5,11 +5,11 @@ import com.example.sampleshoppingjpcapplication.model.*
 class SampleData {
 
     val types = listOf(
-        Type("Fashion", R.drawable.icon_coastal),
-        Type("Mobiles", R.drawable.icon_desert),
-        Type("Appliances", R.drawable.icon_forest),
-        Type("Pantry", R.drawable.icon_rever),
-        Type("Kitchen", R.drawable.hills)
+        Type("Fashion", R.drawable.fashion_image),
+        Type("Mobiles", R.drawable.mobile_images),
+        Type("Appliances", R.drawable.appliences_new),
+        Type("Pantry", R.drawable.pantry),
+        Type("Kitchen", R.drawable.kitchen)
     )
 
 
@@ -17,9 +17,9 @@ class SampleData {
         "Sinai Peninsula, Egypt",
         "Alajuela, Costa Rica",
         "Canton of Bern, Switzerland",
-        "Alaska, U.S",
-        "Honshu, Japan",
-        "Sebastian Cusco San Sabastian, Peru",
+        "At 20-40% off",
+        "At 20-30% off",
+        "At 10% off",
         "Utah, United States",
         "At 60-80% off"
     )
@@ -55,8 +55,8 @@ class SampleData {
         difficulty = 1,
         elevation = 8091,
         imageResources = listOf(
-            R.drawable.annapurna_1,
-            R.drawable.annapurna_2,
+            R.drawable.sale_new,
+            R.drawable.freestocks_1,
             R.drawable.annapurna_3,
             R.drawable.annapurna_4,
             R.drawable.annapurna_5,
@@ -75,7 +75,7 @@ class SampleData {
         difficulty = 1,
         elevation = 8091,
         imageResources = listOf(
-            R.drawable.annapurna_1,
+            R.drawable.jeans_image,
             R.drawable.annapurna_2,
             R.drawable.annapurna_3,
             R.drawable.annapurna_4,
@@ -95,7 +95,7 @@ class SampleData {
         difficulty = 1,
         elevation = 3776,
         imageResources = listOf(
-            R.drawable.mount_fuji_1,
+            R.drawable.shirts,
             R.drawable.mount_fuji_2,
             R.drawable.mount_fuji_3,
             R.drawable.mount_fuji_4,
@@ -109,7 +109,7 @@ class SampleData {
         difficulty = 1,
         elevation = 6190,
         imageResources = listOf(
-            R.drawable.denali_alaska_1,
+            R.drawable.nike,
             R.drawable.denali_alaska_2,
             R.drawable.denali_alaska_3,
             R.drawable.denali_alaska_4,
@@ -124,7 +124,7 @@ class SampleData {
         difficulty = 1,
         elevation = 2600,
         imageResources = listOf(
-            R.drawable.inca_trail_1,
+            R.drawable.cap_image,
             R.drawable.inca_trail_2,
             R.drawable.inca_trail_3,
             R.drawable.inca_trail_4,
@@ -132,11 +132,11 @@ class SampleData {
         ),
         feedBack = feedBack
     )
-    val himalayaMountainRace = Event(12, "Tops & Dresses", R.drawable.icon_desert, annapurna, 0)
-    val mtFujiHillClimb = Event(12, "T-shirts & Shorts", R.drawable.mount_fuji_event, mountFuji, 0)
-    val alaskaEnduranceTrailRun = Event(12, "Kids Wear", R.drawable.denali_climb_event, denali, 0)
+    val himalayaMountainRace = Event(12, "Tops & Dresses", R.drawable.top_dress, annapurna, 0)
+    val mtFujiHillClimb = Event(12, "T-shirts & Shorts", R.drawable.tshirt, mountFuji, 0)
+    val alaskaEnduranceTrailRun = Event(12, "Kids Wear", R.drawable.kids_dress, denali, 0)
     val incaTrailVirtualMarathon =
-        Event(12, "Sports Shoes", R.drawable.inca_trail_event, incaTrail, 0)
+        Event(12, "Sports Shoes", R.drawable.shoes, incaTrail, 0)
     val upcomingEvents = listOf(
         himalayaMountainRace,
         mtFujiHillClimb,

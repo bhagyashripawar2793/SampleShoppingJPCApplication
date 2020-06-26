@@ -31,9 +31,9 @@ fun StackScope.backButton() {
         navigateTo(
             Screen.Home
         )
-    }, modifier = Modifier.padding(top = 24.dp, bottom = 24.dp)) {
+    }, modifier = Modifier.padding(top = 10.dp, bottom = 10.dp)) {
         Modifier.preferredSize(24.dp).gravity(Alignment.Center)
-        Icon(Icons.Filled.ArrowBack, tint = Color.White)
+        Icon(Icons.Filled.ArrowBack, tint = Color.Black)
     }
 }
 

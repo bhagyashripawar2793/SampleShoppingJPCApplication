@@ -32,7 +32,7 @@ fun titleBox( ) {
         TopAppBar(
             backgroundColor = Color.Red,
             elevation = 8.dp,
-            title = { Text("Shopping JPC App", color = Color.White) },
+            title = { Text("Shopping JPC App  ", color = Color.White) },
             navigationIcon = {
                 IconButton(onClick = {}) {
                     Icon(asset = Icons.Default.Menu, tint = Color.White)

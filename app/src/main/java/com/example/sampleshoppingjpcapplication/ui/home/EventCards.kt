@@ -79,7 +79,7 @@ fun ImageEvent(event: Event) {
         imageResource(id = event.imageResource),
         modifier = Modifier.fillMaxWidth().preferredSize(120.dp),
         contentScale = ContentScale.Crop,
-        colorFilter = ColorFilter.tint(Color.Black.copy(alpha = 0.5f))
+        colorFilter = ColorFilter.tint(Color.White.copy(alpha = 0.5f))
             .copy(blendMode = BlendMode.darken)
     )
     IconButton(onClick = {
